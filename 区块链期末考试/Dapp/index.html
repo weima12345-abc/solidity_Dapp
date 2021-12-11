@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <title>真实新闻系统</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="./public/stylesheets/assets/img/favicon.png" rel="icon">
+  <link href="./public/stylesheets/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./public/stylesheets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./public/stylesheets/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./public/stylesheets/assets/vendor/bootstrap/css/bootstrap.css">
+  <!-- jquery特效 -->
+  <link rel="stylesheet" href="./public/stylesheets/colored-theme.min.css">
+  <link rel="stylesheet" href="./public/stylesheets/dark-theme.min.css">
+  <link rel="stylesheet" href="./public/stylesheets/light-theme.min.css">
+  <style>
+    body{
+        /* background-color: #C7EDCC; */
+        font-family: "microsoft yahei";
+        /*min-width: 800px;*/
+    }
+    img{
+        width: 100%;
+        /*height: 462px;*/
+    }
+    .navbar{
+        /*margin-bottom: -10px;*/
+    }
+    #myppt{
+        margin-top: -20px;
+
+    }
+</style>
+
+</head>
+
+<body>
+  
+<!-- <div class="container-fluid" >
+  <div class="page-content__header">
+      <div>
+          <h2 class="page-content__header-heading">a</h2>
+      </div>
+  </div>
+  <div class="main-container" >
+
+      <div class="row">
+
+
+          <div class="col-lg-2">
+              <div class="for-group">
+                  <label for="notification-position">Choose Position</label> -->
+                  <select class="form-control" name="position" style="display: none;" id="notification-position">
+                      <option value="top-center" selected>Top Center</option>
+                      <!-- <option value="bottom-center" selected>Bottom Center</option>
+                      <option value="top-right" selected>Top Right</option> -->
+                      <!-- <option value="bottom-right">Bottom Right</option>
+                      <option value="top-left">Top Left</option>
+                      <option value="bottom-left">Bottom Left</option> -->
+                  </select>
+              </div>
+          </div>
+
+          <div class="col-lg-2">
+              <div class="for-group">
+                  <!-- <label for="close-timeout">Close Timeout</label> -->
+                  <select class="form-control" name="position" style="display: none;"  id="close-timeout">
+                      <option value="0" selected>Disabled</option>
+                      <!-- <option value="1000">1 Sec</option>
+                      <option value="3000">3 Sec</option>
+                      <option value="5000">5 Sec</option> -->
+                  </select>
+              </div>
+          </div>
+
+          <div class="col-lg-2">
+              <div class="for-group">
+                  <!-- <label for="animation">Animation</label> -->
+                  <select class="form-control" name="position" style="display: none;" id="animation">
+                      <option value="none">None</option>
+                      <option value="slide" selected>Slide</option>
+                      <option value="fade">Fade</option>
+                  </select>
+              </div>
+          </div>
+  
+          <div class="col-lg-2">
+              <div class="for-group">
+                  <!-- <label for="animation">Show Buttons</label> -->
+                  <div class="custom-control custom-checkbox" style="display: none;">
+                      <input type="checkbox" class="custom-control-input" id="show-buttons">
+                      <label  class="custom-control-label" for="show-buttons" >Yes/No</label>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-2">
+              <div class="for-group">
+                  <!-- <label for="animation">Show Progress Bar</label> -->
+                  <div class="custom-control custom-checkbox" style="display: none;">
+                      <input type="checkbox" class="custom-control-input" id="show-progress-bar">
+                      <label class="custom-control-label" for="show-progress-bar">Yes/No</label>
+                  </div>
+              </div>
+          </div>
+
+      </div> 
+       <!-- row -->
+
+
+   <!-- 注册窗口 -->
+   <div id="register" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">注册</h1>
+            </div>
+            <div class="modal-body" >
+                <form class="form-group" action="./index.html" onsubmit="return zc()" >
+                        <div class="form-group">
+                            <label for="">用户名</label>
+                            <input class="form-control" type="text" id="rname" placeholder="6-15位中文 字母或数字"required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">地址</label>
+                            <input class="form-control" type="text" id="raddress" placeholder="20个字节长度16进制地址"required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">再次输入地址</label>
+                            <input class="form-control" type="text" placeholder="20个字节长度16进制地址"required="">
+                        </div>
+                      
+                        <div class="text-right" >
+                           <button class="btn btn-primary" type="submit" >提交</button> 
+                            <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                        </div>
+                        <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 登录窗口 -->
+<div id="login" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">登录</h1>
+            </div>
+            <div class="modal-body">
+                <form class="form-group" action="./user.html" onsubmit="return dl()" >
+                        <div class="form-group">
+                            <label for="">用户名</label>
+                            <input class="form-control" id="lname" type="text" placeholder="请输入用户名"required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">地址</label>
+                            <input class="form-control" id="laddress" type="text" placeholder="请输入地址"required="">
+                        </div>
+                        <div class="text-right">
+                          <!-- <button class="b">登录</button> -->
+                           <a ><button class="btn btn-primary" type="submit">登录 </button></a> 
+                            <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                        </div>
+                        <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto">真实新闻系统</h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          
+          <li class="drop-down"><a href="#faq">菜单</a>
+            <!-- <ul> -->
+              <!-- <li><a href="#">用户登录</a></li> -->
+              <ul class="nav navbar-nav navbar-right">
+                <li"><a data-toggle="modal"  data-target="#register" href=""><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                <li onclick="listen()"><a data-toggle="modal" data-target="#login" href="" ><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+            </ul>
+             
+           
+          </li>
+          
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container position-relative">
+      <h1 >欢迎来到真实新闻系统</h1>
+      <h2>真实新闻系统是基于区块链技术的多人共行的无法篡改的新闻发布模块</h2>
+      <a href="#about" class="btn-get-started scrollto">继续浏览</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <!-- <div class="row"> -->
+          <!-- <div class="col-lg-6">
+            <img src="../public/stylesheets/assets/img/about.jpg" class="img-fluid" alt="">
+          </div> --> 
+         <!-- <div class="col-lg-6 pt-4 pt-lg-0"> -->
+            <!-- <h3>已发布资讯</h3> 
+           
+            <hr>
+            <div class="col-md-6">
+              <i class="bx bx-receipt"></i>
+            <table class="ui" id="er">
+    
+              <tr >
+                  <th class="q"><h4>新闻标题</h4></th>
+                  <th class="q"><h4>新闻内容</h4></hd>  
+                  <th class="r"><h4>打赏</h4></th>
+              </tr>
+              <tbody class="Add"id="ui">        
+            </tbody>
+          </table> -->
+          </div>
+
+         
+          </div>
+          </section>
+          <section id="faq" class="faq section-bg">
+            <div class="container">
+      
+              <div class="section-title">
+                <h2>所有已发布的新闻</h2>
+                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+              </div>
+      
+              <div class="faq-list">
+                <ul class="Add">
+<!-- 
+                  <li data-aos="fade-up" class="Add">
+                    <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">张立文：儒学的生命在于创新 <i class="bx bx-chevron-down icon-show">2021-06-01</i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                      <p>1
+                    </p>
+                </div>
+              </li> -->
+              
+             
+          
+
+            </ul>
+
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+  
+             
+          
+
+  <!-- Vendor JS Files -->
+  <script src="./public/stylesheets/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/php-email-form/validate.js"></script>
+  <script src="./public//stylesheets/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./public/stylesheets/assets/js/main.js"></script>
+
+  <script>
+     $('#show-notification-default-alert').on('click', function () {
+        var options = getOptions();
+        options.title = 'Hello!';
+        options.description = 'I am a default notification. I am a default notification. I am a default notification. I am a default notification.';
+        options.width = 500;
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-default-success').on('click', function () {
+        var options = getOptions();
+        options.title = 'Well Done!';
+        options.description = 'You just submit your resume successfully.';
+        options.type = 'success';
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-default-error').on('click', function () {
+        var options = getOptions();
+        options.title = 'Warning!';
+        options.description = 'The data presentation here can be change.';
+        options.type = 'error'; // or danger
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-default-warning').on('click', function () {
+        var options = getOptions();
+        options.title = 'Reminder!';
+        options.description = 'You have a meeting at 10:30 АМ';
+        options.type = 'warning';
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-default-info').on('click', function () {
+        var options = getOptions();
+        options.title = 'Sorry!';
+        options.description = 'Could not complete your transaction.';
+        options.type = 'info';
+        //options.image = 'img/info.png';
+        options.image = {
+            visible: true
+        };
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-icon-alert').on('click', function () {
+        var options = getOptions();
+        options.title = 'Hello!';
+        options.description = 'I am a default notification.';
+        //options.image = 'img/default.png';
+        options.image = {
+            visible: true
+        };
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-icon-success').on('click', function () {
+        var options = getOptions();
+        options.title = 'Well Done!';
+        options.description = 'You just submit your resume successfully.';
+        //options.image = 'img/success.png';
+        options.image = {
+            visible: true
+        };
+        options.type = 'success';
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-icon-error').on('click', function () {
+        var options = getOptions();
+        options.title = 'Warning!';
+        options.description = 'The data presentation here can be change.';
+        //options.image = 'img/danger.png';
+        options.image = {
+            visible: true
+        };
+        options.type = 'danger';
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-icon-warning').on('click', function () {
+        var options = getOptions();
+        options.title = 'Reminder!';
+        options.description = 'You have a meeting at 10:30 АМ';
+        //options.image = 'img/warning.png';
+        options.image = {
+            visible: true
+        };
+        options.type = 'warning';
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-icon-info').on('click', function () {
+        var options = getOptions();
+        options.title = 'Sorry!';
+        options.description = 'Could not complete your transaction.';
+        options.image = {
+            visible: true
+        };
+        options.type = 'info';
+
+        GrowlNotification.notify(options);
+    });
+
+    $('#show-notification-close-all').on('click', function () {
+        GrowlNotification.closeAll();
+    });
+   </script>
+  	<script>
+      addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+      }, false);
+  
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
+   <!-- <script src="public/stylesheets/assets/vendor/jquery/jquery.min.js"></script>
+   <script src="public/stylesheets/assets/vendor/jquery/jquery.cookie.js"></script>
+   <script src="public/stylesheets/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <script src="public/stylesheets/assets/toastr/toastr.js"></script>
+   <script src="public/stylesheets/assets/toastr/toastr.css"></script>
+   <script src="public/javascripts/index.js"></script>
+   <script src="public/stylesheets/growl-notification.min.js"></script>
+   <script src="./public/javascripts/web3.min.js"></script>
+   <script src="./public/javascripts/web3.min.js.map"></script> -->
+
+   <script src="./public/stylesheets/assets/vendor/bootstrap/js/bootstrap.min.js"></script> 
+   <!-- <script src="./public/javascripts/index.js"></script> -->
+   <script src="./public/stylesheets/growl-notification.min.js"></script>
+   <script src="./public/javascripts/web3.min.js"></script>
+   <script src="./public/javascripts/web3.min.js.map"></script>
+   <script src="./public/javascripts/index.js"></script>
+
+</body>
+
+</html>

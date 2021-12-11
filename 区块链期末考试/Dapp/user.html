@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <title>真实新闻系统</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="./public/stylesheets/assets/img/favicon.png" rel="icon">
+  <link href="./public/stylesheets/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="./public/stylesheets/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="./public/stylesheets/assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./public/stylesheets/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./public/stylesheets/assets/vendor/bootstrap/css/bootstrap.css">
+ 
+<!-- jquery特效 -->
+  <link rel="stylesheet" href="./public/stylesheets/colored-theme.min.css">
+  <link rel="stylesheet" href="./public/stylesheets/dark-theme.min.css">
+  <link rel="stylesheet" href="./public/stylesheets/light-theme.min.css">
+
+  <!-- <link rel="stylesheet" href="./public/stylesheets/test3.css"> -->
+  <style>
+    body{
+        /* background-color: #C7EDCC; */
+        font-family: "microsoft yahei";
+        /*min-width: 800px;*/
+    }
+    img{
+        width: 100%;
+        /*height: 462px;*/
+    }
+    .navbar{
+        /*margin-bottom: -10px;*/
+    }
+    #myppt{
+        margin-top: -20px;
+
+    }
+</style>
+
+</head>
+
+<body>
+  <select class="form-control" name="position" style="display: none;" id="notification-position">
+    <option value="top-center" selected>Top Center</option>
+    <!-- <option value="bottom-center" selected>Bottom Center</option>
+    <option value="top-right" selected>Top Right</option> -->
+    <!-- <option value="bottom-right">Bottom Right</option>
+    <option value="top-left">Top Left</option>
+    <option value="bottom-left">Bottom Left</option> -->
+</select>
+</div>
+</div>
+
+<div class="col-lg-2">
+<div class="for-group">
+<!-- <label for="close-timeout">Close Timeout</label> -->
+<select class="form-control" name="position" style="display: none;"  id="close-timeout">
+    <option value="0" selected>Disabled</option>
+    <!-- <option value="1000">1 Sec</option>
+    <option value="3000">3 Sec</option>
+    <option value="5000">5 Sec</option> -->
+</select>
+</div>
+</div>
+
+<div class="col-lg-2">
+<div class="for-group">
+<!-- <label for="animation">Animation</label> -->
+<select class="form-control" name="position" style="display: none;" id="animation">
+    <option value="none">None</option>
+    <option value="slide" selected>Slide</option>
+    <option value="fade">Fade</option>
+</select>
+</div>
+</div>
+
+<div class="col-lg-2">
+<div class="for-group">
+<!-- <label for="animation">Show Buttons</label> -->
+<div class="custom-control custom-checkbox" style="display: none;">
+    <input type="checkbox" class="custom-control-input" id="show-buttons">
+    <label  class="custom-control-label" for="show-buttons" >Yes/No</label>
+</div>
+</div>
+</div>
+
+<div class="col-lg-2">
+<div class="for-group">
+<!-- <label for="animation">Show Progress Bar</label> -->
+<div class="custom-control custom-checkbox" style="display: none;">
+    <input type="checkbox" class="custom-control-input" id="show-progress-bar">
+    <label class="custom-control-label" for="show-progress-bar">Yes/No</label>
+</div>
+</div>
+</div>
+
+</div> 
+ 
+ <!-- 新闻发布窗口 -->
+ <div id="register" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-body">
+              <button class="close" data-dismiss="modal">
+                  <span>&times;</span>
+              </button>
+          </div>
+          <div class="modal-title">
+              <h1 class="text-center">发布新闻</h1>
+          </div>
+          <div class="modal-body">
+              <form id="form" class="form-group" >
+                      <div class="form-group" >
+                          <label for="">新闻标题</label>
+                          <input class="form-control" type="text" id="title" placeholder="6-15位中文 字母或数字" required="">
+                      </div>
+                      <div class="form-group">
+                          <label for="">新闻内容</label>
+                          <input class="form-control" type="text" id="ctx" placeholder="新闻内容" required="">
+                      </div>
+
+                      
+                    
+                      <div class="text-right">
+                       <a  class="sendEthButton"><button class="btn btn-primary" type="button" >提交</button></a> 
+                        <!-- <input type="button" value="PRINT" onclick="listen()"/> -->
+                          <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                      </div>
+                     
+              </form>
+              
+          </div>
+      </div>
+  </div>
+</div>
+<!-- 登录窗口 -->
+<div id="login" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-body">
+              <button class="close" data-dismiss="modal">
+                  <span>&times;</span>
+              </button>
+          </div>
+          <div class="modal-title">
+              <h1 class="text-center">打赏</h1>
+          </div>
+          <div class="modal-body">
+              <form class="form-group" >
+                      <!-- <div class="form-group">
+                          <label for="">用户名</label>
+                          <input class="form-control" name="name" type="text" placeholder="">
+                      </div> -->
+                      <div class="form-group">
+                          <label for="">金额</label>
+                          <input class="form-control" id="money" type="number" placeholder="">
+                      </div>
+                      <div class="text-right">
+                          <a onclick="reward()" ><button class="btn btn-primary"  type="button">确认</button></a>
+                          <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                      </div>
+                      <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto">真实新闻系统</h1>
+      <!-- <input class="a" type="button" value="PRINT" onclick="listen()"/> -->
+      <!-- <button class="a" onclick="listen()" type="button">hhh</button> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+       <span class="showAccount"></span>
+       <span class="getBalanceButton"></span>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          
+          <li class="drop-down"><a  onclick="listen()">菜单</a>
+            <!-- <ul> -->
+              <!-- <li><a href="#">用户登录</a></li> -->
+              <ul class="nav navbar-nav navbar-right">
+                <li class="b" ><a data-toggle="modal"   data-target="#register" href=""><span class="glyphicon glyphicon-user"></span>新闻发布</a></li>
+                <!-- <li><a data-toggle="modal" data-target="#login" href=""><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> -->
+            </ul>
+             
+           
+          </li>
+          <li class="drop-down"><a href="#a">个人中心</a>
+            <ul class="nav navbar-nav navbar-right">
+              <li ><a data-toggle="modal" class="change"   data-target="#register" href=""><span class="glyphicon glyphicon-user"></span></a></li>
+              <!-- <li><a data-toggle="modal" data-target="#login" href=""><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> -->
+          </ul>
+           
+          </li>
+         <li> <a href="./index.html" >退出</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container position-relative">
+      <h1>欢迎来到真实新闻系统</h1>
+      <h2>真实新闻系统是基于区块链技术的多人共行的无法篡改的新闻发布模块</h2>
+      <a href="#about" class="btn-get-started scrollto">继续浏览</a>
+    </div>
+  </section><!-- End Hero -->
+  
+  <main id="main">
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>当前用户已发布的新闻</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+        <div class="faq-list">
+         
+          <ul class="Add">
+        
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>所有已发布的新闻</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+        <div class="faq-list">
+          <ul class="Add1">
+ 
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+
+  
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+   
+            <footer id="footer">
+
+              <div class="footer-top">
+                <div class="container">
+                  <div class="row">
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <h4>查询新闻是否存在</h4>
+              <p>通过新闻发布人提交新闻形成的特定的下标值, 查询新闻是否存在</p>
+              <!-- <form> -->
+                <input type="number" id="newskey1" placeholder="输入新闻编号"><input class="btn btn-primary" type="button" onclick="searchTf()" value="查询">
+              <!-- </form> -->
+            </div>
+            <br>
+            <div class="col-lg-4 col-md-6 footer-newsletter" >
+              <h4>查询新闻内容</h4>
+              <p>通过新闻发布人提交该新闻形成的特定的下标值, 查询新闻的具体内容</p>
+              <!-- <form> -->
+                <input type="number" id="newskey2" placeholder="输入新闻编号"><input class="btn btn-primary" type="button" onclick="searchCtx()" value="查询">
+              <!-- </form> -->
+            </div>
+
+            <br>
+            <div class="col-lg-4 col-md-6 footer-newsletter" >
+              <h4>查询一则新闻累积的最高奖励</h4>
+              <p>通过新闻发布人提交该新闻形成的特定的下标值, 查询新闻累积的最高奖励值</p>
+       
+                <input type="number" id="newskey3" placeholder="输入新闻编号"><input class="btn btn-primary" type="button" onclick="searchReward()" value="查询">
+            
+            </div>
+
+            <br>
+            <div class="col-lg-4 col-md-6 footer-newsletter" >
+              <h4>退钱</h4>
+              <p>通过新闻发布人提交该新闻形成的特定的下标值, 查询新闻退款情况</p>
+       
+                <input type="number" id="newskey4" placeholder="输入新闻编号"><input class="btn btn-primary" type="button" onclick="returnMoney()" value="查询">
+            
+            </div>
+            <br>
+            <div class="col-lg-4 col-md-6 footer-newsletter" >
+              <h4>查询某个新闻已被谁打赏过</h4>
+              <p>通过新闻发布人提交该新闻形成的特定的下标值, 查询某个新闻已被谁打赏过</p>
+       
+                <input type="number" id="newskey5" placeholder="输入新闻编号"><input class="btn btn-primary" type="button" onclick="queryRewardAddress()" value="查询">
+            
+            </div>
+            <br>
+            <div class="col-lg-4 col-md-6 footer-newsletter" >
+              <h4>查询某个新闻所有打赏信息</h4>
+              <p>通过新闻发布人提交该新闻形成的特定的下标值, 查询某个新闻所有打赏信息</p>
+       
+                <input type="number" id="newskey6" placeholder="输入新闻编号"><input class="btn btn-primary" type="button" onclick="queryRewardUint()" value="查询">
+            
+            </div>
+              
+              
+            <!-- </div>
+        
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+
+  
+    <!-- ======= Counts Section ======= -->
+   
+
+    
+  <!-- Vendor JS Files -->
+  
+  <script type="text/javascript" src="./public/stylesheets/assets/vendor/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="./public/stylesheets/assets/vendor/jquery/jquery.js"></script>
+  <script src="./public//stylesheets/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./public//stylesheets/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+
+  <script src="./public/stylesheets/assets/vendor/php-email-form/validate.js"></script>
+  <script src="./public/stylesheets/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="./public/stylesheets/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="./public/stylesheets/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="./public/stylesheets/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="./public/stylesheets/assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <!-- <script src="/stylesheets/assets/js/main.js"></script> -->
+
+ 
+ 
+   <script src="./public/stylesheets/assets/vendor/bootstrap/js/bootstrap.min.js"></script> 
+   <!-- <script src="./public/javascripts/index.js"></script> -->
+   <script src="./public/stylesheets/growl-notification.min.js"></script>
+   <script src="./public/javascripts/web3.min.js"></script>
+   <script src="./public/javascripts/web3.min.js.map"></script>
+   <script src="./public/javascripts/user.js"></script>
+   <script>
+     
+
+    //1
+   function more1(){
+        if(document.getElementById("more1").style.display="none"){
+          document.getElementById("more1").style.display="block"
+        }
+      }
+      function back1(){
+        if(document.getElementById("more1").style.display="block"){
+          document.getElementById("more1").style.display="none"
+        }
+      }
+
+//2
+      function more2(){
+        if(document.getElementById("more2").style.display="none"){
+          document.getElementById("more2").style.display="block"
+        }
+      }
+      function back2(){
+        if(document.getElementById("more2").style.display="block"){
+          document.getElementById("more2").style.display="none"
+        }
+      }
+
+//3
+      function more3(){
+        if(document.getElementById("more3").style.display="none"){
+          document.getElementById("more3").style.display="block"
+        }
+      }
+      function back3(){
+        if(document.getElementById("more3").style.display="block"){
+          document.getElementById("more3").style.display="none"
+        }
+      }
+     
+      
+      //4
+      function more4(){
+        if(document.getElementById("more4").style.display="none"){
+          document.getElementById("more4").style.display="block"
+        }
+      }
+      function back4(){
+        if(document.getElementById("more4").style.display="block"){
+          document.getElementById("more4").style.display="none"
+        }
+      }
+    
+
+      //more-ft
+    // Array.from(document.getElementsByClassName("more-ft")).style.display="none";
+        // document.getElementsByClassName("more-ft").style.display="none";
+      
+      
+//       function more_ft(){
+// if(document.getElementById("more-ft").style.display="none"){
+//   document.getElementById("more-ft").style.display="block"
+// }
+//       }
+        
+//         function back_ft(){
+// if(document.getElementById("more-ft").style.display="block"){
+//   document.getElementById("more-ft").style.display="none"
+// }
+//       }
+
+  </script>
+   
+</body>
+
+</html>
